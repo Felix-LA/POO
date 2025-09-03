@@ -1,13 +1,28 @@
 def financiamento(valorVeiculo,ValorEntrada,TaxaJuros,QuantidadeParcelas):
     valorAPagar = valorVeiculo - ValorEntrada
     juros = TaxaJuros / 100
-    jurosComposto = valorAPagar * ((1 + juros) ** QuantidadeParcelas)
-    print(jurosComposto)
+    valorTotal = valorAPagar * ((1 + juros) ** QuantidadeParcelas)
 
-    valorParcela = (valorAPagar + jurosComposto) / QuantidadeParcelas
-    valorTotal = valorAPagar + jurosComposto
+    valorParcela = valorTotal / QuantidadeParcelas
     jurosPagos = valorTotal - valorAPagar
-    return valorParcela,jurosPagos,valorTotal
+
+
+    return print(f"Valor financiado: R$ {valorAPagar:.2f}"
+                 "\n"
+                 f"Total a pagar: R$ {valorTotal:.2f}"
+                 "\n"
+                 f"Juros pagos: R$ {jurosPagos:.2f}"
+                 "\n"
+                 f"Valor de cada parcela ({QuantidadeParcelas}x): R$ {valorParcela:.2f}"
+                 )
+
+
+
+
+financiamento(50000,10000,2,24)
+
+
+
 
 
 
@@ -30,7 +45,6 @@ def financiamento(valorVeiculo,ValorEntrada,TaxaJuros,QuantidadeParcelas):
     # return jurosPagos,valorparcela,valorTotal
     
 
-print(financiamento(100000,40000,1,36))
 
 
 # montante = 1000
