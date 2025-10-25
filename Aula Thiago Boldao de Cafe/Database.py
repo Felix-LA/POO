@@ -40,7 +40,6 @@ class Database:
                 print(i)
             print("=" * 50)
             return f"Tabela {tabela}"
-            print("=" * 50)
 
         except Exception as erro:
             print(erro)
@@ -49,7 +48,7 @@ class Database:
             self.close_connection()    
 
 
-    def selectByID(self,tabela, id_cli):
+    def select_by_id(self,tabela, id_cli):
         print("=" * 50)
         self.connect()
         try:
@@ -66,7 +65,19 @@ class Database:
             self.close_connection()    
 
 
+    def update(self,tabela,id,dado_para_atualizar,dado_atualizado):
+        print("=" * 50)
+        self.connect()
+        try:
+            self.cursor.execute(f"UPDATE {tabela} SET {dado_para_atualizar} = '{dado_atualizado}' WHERE id_cli = {id}")
+            self.conn.commit()
+            return True
 
+        except Exception as erro:
+            print(erro)
+
+        finally:
+            self.close_connection()
 
 
     def delete(self,id_cli):
@@ -107,4 +118,10 @@ db = Database()
 #     print("Deletado com Sucesso")
 
 # print(db.select("cliente"))
-# print(db.selectByID("cliente",10))
+# print(db.select_by_id("cliente",10))
+
+# print(db.update("cliente",16,"nome","Joao Pedro"))
+
+# atualizar = db.update("cliente",9,"nome","Proj JOW-JOW")
+# if atualizar:
+#     print("Dado atualizado com Sucesso")
