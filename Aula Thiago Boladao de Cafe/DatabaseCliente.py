@@ -10,7 +10,7 @@ class Database:
         if self.conn.is_connected():
             self.cursor = self.conn.cursor()
             db_info = self.conn.get_server_info()
-            print("Connectado Com Sucesso")
+            print("Connectado Com Sucesso", db_info)
             print("=" * 50)
         else:
             print("Erro de Conexao")
@@ -56,7 +56,6 @@ class Database:
             self.cursor.execute(f"SELECT * FROM {tabela} WHERE id_cli = {id_cli}")
             result = self.cursor.fetchone()
             return result
-            print("=" * 50)
 
         except Exception as erro:
             print(erro)
@@ -65,11 +64,11 @@ class Database:
             self.close_connection()    
 
 
-    def update(self,tabela,id,dado_para_atualizar,dado_atualizado):
+    def update(self,tabela,id,tupla):
         print("=" * 50)
         self.connect()
         try:
-            self.cursor.execute(f"UPDATE {tabela} SET {dado_para_atualizar} = '{dado_atualizado}' WHERE id_cli = {id}")
+            self.cursor.execute(f"UPDATE {tabela} SET nome = '{tupla[1]}', cpf = '{tupla[2]}', fone = '{tupla[3]}', cidade = {tupla[4]} WHERE id_cli = {id}")
             self.conn.commit()
             return True
 
@@ -120,7 +119,7 @@ db = Database()
 # print(db.select("cliente"))
 # print(db.select_by_id("cliente",10))
 
-# print(db.update("cliente",16,"nome","Joao Pedro"))
+# print(db.update("cliente",16,"Joao Pedro","444", "343", "RJ"))
 
 # atualizar = db.update("cliente",9,"nome","Proj JOW-JOW")
 # if atualizar:
