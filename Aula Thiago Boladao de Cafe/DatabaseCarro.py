@@ -3,10 +3,13 @@ import mysql.connector
 class DatabaseCarro:
     def __init__(self, banco = "perkal") -> None:
         self.banco = banco
+        self.host = "localhost"
+        self.user = "root"
+        self.password = ""
 
     def connect(self):
         print("=" * 50)
-        self.conn = mysql.connector.connect(host='127.0.0.1',database=self.banco,user='root',password='')
+        self.conn = mysql.connector.connect(host=self.host,database=self.banco,user=self.user,password=self.password)
         if self.conn.is_connected():
             self.cursor = self.conn.cursor()
             db_info = self.conn.get_server_info()
@@ -80,6 +83,18 @@ class DatabaseCarro:
         finally:
             self.close_connection()
 
+    def delete(self,id):
+        print("=" * 50)
+        self.connect()
+        try:
+            self.cursor.execute(f"DELETE FROM carro WHERE id_carro = {id}")
+            self.conn.commit()
+            return True
+        except Exception as erro:
+            print(erro)
+
+        finally:
+            self.close_connection()
 
     def close_connection(self):
         if self.conn.is_connected():
@@ -100,3 +115,4 @@ carro = DatabaseCarro()
 #     print(cadastro)
 
 # carro.select("carro") 
+# carro.delete(5)

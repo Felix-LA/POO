@@ -105,7 +105,7 @@ class Database:
 
 db = Database()
 
-# db.connect()
+db.connect()
 
 # dados = ("Ederson","333","313","RJ")
 # cadastro = db.insert(dados)
