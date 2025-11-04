@@ -64,11 +64,11 @@ class Database:
             self.close_connection()    
 
 
-    def update(self,tabela,id,tupla):
+    def update(self,id,tupla):
         print("=" * 50)
         self.connect()
         try:
-            self.cursor.execute(f"UPDATE {tabela} SET nome = '{tupla[1]}', cpf = '{tupla[2]}', fone = '{tupla[3]}', cidade = {tupla[4]} WHERE id_cli = {id}")
+            self.cursor.execute(f"UPDATE cliente SET nome = '{tupla[1]}', cpf = '{tupla[2]}', fone = '{tupla[3]}', cidade = {tupla[4]} WHERE id_cli = {id}")
             self.conn.commit()
             return True
 

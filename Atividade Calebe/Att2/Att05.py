@@ -45,10 +45,10 @@ class Att05:
 
 
 # --- Exemplo de uso ---
-if __name__ == "__main__":
-    r1 = Att05(10, 45, 30)
-    r2 = Att05(8, 15, 50)
+# if __name__ == "__main__":
+#     tempo1 = Att05(10, 45, 30)
+#     tempo2 = Att05(8, 15, 50)
 
-    print("Relógio 1:", r1.mostrarTempo())
-    print("Relógio 2:", r2.mostrarTempo())
-    print("Diferença entre os dois:", r1.diferenca(r2))
+#     print("Relógio 1:", tempo1.mostrarTempo())
+#     print("Relógio 2:", tempo2.mostrarTempo())
+#     print("Diferença entre os dois:", tempo1.diferenca(tempo2))

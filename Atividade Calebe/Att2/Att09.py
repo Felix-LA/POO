@@ -1,7 +1,8 @@
 class Att09:
     def __init__(self, p, q):
         if q == 0:
-            print("Erro: o denominador não pode ser zero!")
+            print("O denominador não pode ser zero!")
+            return None
             
         self.p = p
         self.q = q
@@ -36,13 +37,15 @@ class Att09:
 
 
 # Exemplo de uso:
-r1 = Att09(2, 3)
-r2 = Att09(3, 4)
+# r1 = Att09(2, 3)
+# r2 = Att09(3, 4)
 
-print("r1 =", r1)
-print("r2 =", r2)
-print("Soma =", r1.somar(r2))
-print("Subtração =", r1.subtrair(r2))
-print("Produto =", r1.produto(r2))
-print("Quociente =", r1.quociente(r2))
-print("Inversão de sinal r1 =", r1.inverter_sinal())
+# print("r1 =", r1)
+# print("r2 =", r2)
+# print("Soma =", r1.somar(r2))
+# print("Subtração =", r1.subtrair(r2))
+# print("Produto =", r1.produto(r2))
+# print("Quociente =", r1.quociente(r2))
+# print("Inversão de sinal r1 =", r1.inverter_sinal())
+
+# r3 = Att09(2,0)
