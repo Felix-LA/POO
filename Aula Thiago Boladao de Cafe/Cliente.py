@@ -13,9 +13,9 @@ class Cliente:
         result = self.db.insert(tupla)
         return result
 
-    def buscar(self):
+    def buscar(self,tabela):
         self.db = Database()
-        dados = self.db.select()
+        dados = self.db.select(tabela)
         return dados
     
     def buscarPorID(self,ID):
